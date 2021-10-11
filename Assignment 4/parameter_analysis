@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt 
+
+# a=np.load('losses_eta.npy')
+# a_dict = a.item()
+# counter = 1
+# mini = 1000
+# bestkey = ''
+# for key in a_dict:
+# 	y_s = np.array(a_dict[key]).reshape(len(a_dict[key]),1)
+# 	if np.min(y_s)<mini:
+# 		mini = np.min(y_s)
+# 		bestkey = key
+
+# 	x_s = np.arange(0,1000*len(y_s),1000)
+# 	plt.plot(x_s,y_s,label = str(key),color=(counter/len(a_dict),2*counter%len(a_dict)/len(a_dict),3*counter%len(a_dict)/len(a_dict)))
+# 	counter += 1
+# print(bestkey)
+# plt.legend()
+# plt.xlabel('iteration')
+# plt.ylabel('smooth loss')
+# plt.title('loss function for different etas')
+# plt.show()
+a = np.load('losses_adam.npy')
+b = np.load('losses_adagrad.npy')
+x_s = np.arange(0,500000,500)
+plt.xlabel('iterations')
+plt.ylabel('smooth loss')
+plt.plot(x_s,a,label='adam')
+plt.plot(x_s,b,label='adagrad')
+plt.legend()
+plt.show()
